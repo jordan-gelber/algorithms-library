@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { AlgorithmService } from '../algorithm.service';
+import { Algorithm } from '../algorithm';
 
 @Component({
   selector: 'app-algorithm-details',
@@ -6,10 +11,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./algorithm-details.component.css']
 })
 export class AlgorithmDetailsComponent implements OnInit {
+  algorithm: Algorithm;
 
-  constructor() { }
+  constructor(
+    private location: Location,
+    private route: ActivatedRoute,
+    private algorithmService: AlgorithmService
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.route.params.subscribe(routeParams => {
+    	this.getAlgorithm(routeParams.id);
+    });
+  }
+
+  getAlgorithm(id: string): void {
+    this.algorithmService.getAlgorithm(id)
+      .subscribe(algorithm => this.algorithm = algorithm);
+  }
+
+  back(): void {
+    this.location.back();
   }
 
 }

@@ -1,0 +1,62 @@
+/* AlgorithmDetailsComponent styles */
+:host {
+  flex: 1;
+  flex-direction: column;
+}
+
+.code-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.code-block {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  height: 0px;
+  padding: 10px;
+}
+
+.code-container {
+  background: linear-gradient(to right, #ECF5FF, #007AFF);
+}
+
+.details-container {
+  border-left: solid 1px;
+}
+
+.details-container p {
+  padding-right: 1em;
+}
+
+.details {
+  text-align: right;
+}
+
+.details-title {
+  border-bottom: solid 1px;
+  text-align: center;
+}
+
+.details-content a {
+  text-decoration: none;
+  color: #000;
+}
+
+.details-content a:hover {
+  text-decoration: underline;
+}
+
+.details-content p {
+  margin-block-start: auto;
+  margin-block-end: auto;
+}
+
+.details-content label {
+  border-bottom: dashed 1px;
+  padding: .5em;
+}
+
+.details-button {
+  border-top: 1px solid;
+}

@@ -1,1 +1,53 @@
-<p>algorithm-details works!</p>
+<div *ngIf="algorithm" class="main-container" fxFlex="1 1 auto" fxLayout="column">
+  <div fxFlex="grow" fxLayout="row">
+    <div class="code-container" fxFlex="65" fxLayout="column">
+      <div class="code-block">
+        <div [innerHtml]="algorithm.code"></div>
+      </div>
+    </div>
+    <div class="details-container" fxFlex="35" fxLayout="column">
+      <div class="details-content" fxFlex="grow">
+        <label fxLayout="row" fxLayoutAlign="space-between center">
+          <p>ID</p>
+          <div class="details">{{algorithm.id}}</div>
+        </label>
+        <label fxLayout="row" fxLayoutAlign="space-between center">
+          <p>NAME</p>
+          <div class="details">{{algorithm.name}}</div>
+        </label>
+        <label *ngIf="algorithm.group" fxLayout="row"
+          fxLayoutAlign="space-between center">
+          <p>GROUP</p>
+          <div class="details">{{algorithm.group}}</div>
+        </label>
+        <label *ngIf="algorithm.input" fxLayout="row"
+          fxLayoutAlign="space-between center">
+          <p>INPUT</p>
+          <div class="details" [innerHtml]="algorithm.input"></div>
+        </label>
+        <label *ngIf="algorithm.output" fxLayout="row"
+          fxLayoutAlign="space-between center">
+          <p>OUTPUT</p>
+          <div class="details" [innerHtml]="algorithm.output"></div>
+        </label>
+        <label *ngIf="algorithm.runtime" fxLayout="row"
+          fxLayoutAlign="space-between center">
+          <p>RUNTIME</p>
+          <div class="details" [innerHtml]="algorithm.runtime"></div>
+        </label>
+        <label *ngIf="algorithm.subroutine" fxLayout="row"
+          fxLayoutAlign="space-between center">
+          <p>SUBROUTINE</p>
+          <a routerLink="/algorithms/{{algorithm.subroutine.subid}}">
+            {{algorithm.subroutine.subname}}
+          </a>
+        </label>
+      </div>
+      <div class="details-button" fxFlex="nogrow" fxLayout="row" fxLayoutAlign="center end">
+        <button (click)="back()">Back</button>
+        <a routerLink="/algorithms"><button>All Algorithms</button></a>
+        <a routerLink="/edit/{{algorithm.id}}"><button>Edit</button></a>
+      </div>
+    </div>
+  </div>
+</div>
