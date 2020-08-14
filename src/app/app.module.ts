@@ -10,6 +10,7 @@ import { NewAlgorithmComponent } from './algorithms/new-algorithm/new-algorithm.
 import { EditAlgorithmComponent } from './algorithms/edit-algorithm/edit-algorithm.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { AlgorithmSearchComponent } from './algorithm/algorithm-search/algorithm-search.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     AlgorithmListComponent,
     NewAlgorithmComponent,
     EditAlgorithmComponent,
-    HomeComponent
+    HomeComponent,
+    AlgorithmSearchComponent
   ],
   imports: [
     BrowserModule,
