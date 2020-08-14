@@ -1,7 +1,28 @@
-<ul>
-  <li *ngFor="let algorithm of algorithms">
-    <a routerLink="/algorithms/{{algorithm.id}}">
-      {{algorithm.name}}
-    </a>
-  </li>
-</ul>
+<div class="main-container" fxFlex="1 1 auto">
+  <div class="list-title" gdColumns="2fr 1fr">
+    <span></span>
+    <select (change)="filterAlgorithms($event.target.value)">
+      <option value=" " disabled selected hidden>Filter by Group</option>
+      <option value="all">All Algorithms</option>
+      <option *ngFor="let group of groups" [value]="group">{{group}}</option>
+    </select>
+  </div>
+  <div class="algorithms-list">
+    <ul *ngIf="filtered; else elseBlock">
+      <li *ngFor="let algorithm of filteredAlgorithms" fxLayout="column">
+        <a routerLink="/algorithms/{{algorithm.id}}">
+          {{algorithm.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <ul>
+    <li *ngFor="let algorithm of algorithms">
+      <a routerLink="/algorithms/{{algorithm.id}}">
+        {{algorithm.name}}
+      </a>
+    </li>
+  </ul>
+</ng-template>
