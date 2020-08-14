@@ -1,0 +1,8 @@
+<div>
+  <label>New Algorithm Name:
+    <input #algorithmName />
+  </label>
+  <button (click)="add(algorithmName.value); algorithmName.value=''">
+    Add Algorithm
+  </button>
+</div>
