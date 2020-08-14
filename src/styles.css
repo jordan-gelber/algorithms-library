@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+
+/* Import Google Fonts Karla and Anonymous Pro */
+@import url("https://fonts.googleapis.com/css?family=Karla|Anonymous+Pro");
+
+* {
+  font-family: "Anonymous Pro", Helvetica, sans-serif;
+}
+
+h1 {
+  font-family: "Karla", Helvetica, sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline:none !important;
+}
+
+body {
+  margin: 0px;
+  min-height: 100vh;
+}
+
+button {
+  appearance: none;
+  border: solid 1px;
+  padding: .25em .5em;
+  margin: 10px;
+  box-shadow: 3px 3px 0px;
+  background: white;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px;
+}
