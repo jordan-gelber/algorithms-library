@@ -8,7 +8,7 @@ import { Algorithm } from '../algorithm';
   templateUrl: './algorithm-list.component.html',
   styleUrls: ['./algorithm-list.component.css']
 })
-export class AlgorithmsComponent implements OnInit {
+export class AlgorithmListComponent implements OnInit {
 
   groups = new Set<string>();
 
