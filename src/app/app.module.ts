@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AlgorithmSearchComponent } from './algorithm/algorithm-search/algorithm-search.component';
 import { AboutComponent } from './about/about.component';
+import { PanelsComponent } from './panels/panels.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AboutComponent } from './about/about.component';
     EditAlgorithmComponent,
     HomeComponent,
     AlgorithmSearchComponent,
-    AboutComponent
+    AboutComponent,
+    PanelsComponent
   ],
   imports: [
     BrowserModule,
