@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "algorithms-library"
+    }
+  },
+  "defaultProject": "algorithms-library",
+  "cli": {
+    "analytics": false
+  }
 }
