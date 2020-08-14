@@ -1,0 +1,67 @@
+/* AppComponent styles */
+.main-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1170px;
+  padding-right: 16px;
+  padding-left:  16px;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.main-container {
+  min-height: 100vh;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.header {
+  border-bottom: 1px solid;
+}
+
+.header a {
+  margin-bottom: 20px;
+  text-decoration: none;
+  font-family: "Karla", Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 2.5em;
+  color: #000;
+}
+
+.header a:hover {
+  color: #D1D1D1;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.menu nav a {
+  color: #000;
+  font-size: 1.5em;
+  line-height: 1.2;
+  padding: 5px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.menu nav a:hover {
+  color: #fff;
+  background-color: #D1D1D1;
+}
+
+.search-container {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  height: 0px;
+}
+
+.content-container {
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  display: flex;
+  flex-direction: column;
+}

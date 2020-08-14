@@ -1,19 +1,23 @@
 <div class="main-wrapper">
-  <div class="main-container">
-    <div class="header">
+  <div class="main-container" fxLayout="column">
+    <div class="header" fxFlex="nogrow" fxLayout="column" fxLayoutAlign="center center">
       <a routerLink="/">{{title}}</a>
     </div>
-    <div>
-      <div class="menu-container">
+    <div fxFlex="grow" fxLayout="row">
+      <div class="menu-container" fxFlex="20">
         <div class="menu">
           <nav>
             <a routerLink="/">HOME</a>
             <a routerLink="/algorithms">ALGORITHMS</a>
+            <!-- <a routerLink="/about">ABOUT</a> -->
             <a routerLink="/new">NEW</a>
           </nav>
+          <div class="search-container">
+            <!-- <app-algorithm-search></app-algorithm-search> -->
+          </div>
         </div>
       </div>
-      <div class="content-container">
+      <div class="content-container" fxFlex="grow">
         <router-outlet></router-outlet>
       </div>
     </div>
