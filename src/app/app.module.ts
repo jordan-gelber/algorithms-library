@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { AlgorithmSearchComponent } from './algorithm/algorithm-search/algorithm-search.component';
 import { AboutComponent } from './about/about.component';
 import { PanelsComponent } from './panels/panels.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PanelsComponent } from './panels/panels.component';
     HomeComponent,
     AlgorithmSearchComponent,
     AboutComponent,
-    PanelsComponent
+    PanelsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
