@@ -1,3 +1,21 @@
-<div>
-  <app-algorithm-list></app-algorithm-list>
+<div class="main-wrapper">
+  <div class="main-container">
+    <div class="header">
+      <a routerLink="/">{{title}}</a>
+    </div>
+    <div>
+      <div class="menu-container">
+        <div class="menu">
+          <nav>
+            <a routerLink="/">HOME</a>
+            <a routerLink="/algorithms">ALGORITHMS</a>
+            <a routerLink="/new">NEW</a>
+          </nav>
+        </div>
+      </div>
+      <div class="content-container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 </div>
