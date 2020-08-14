@@ -14,6 +14,7 @@ import { AlgorithmSearchComponent } from './algorithm/algorithm-search/algorithm
 import { AboutComponent } from './about/about.component';
 import { PanelsComponent } from './panels/panels.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PanelComponent } from './panels/panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AlgorithmSearchComponent,
     AboutComponent,
     PanelsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,

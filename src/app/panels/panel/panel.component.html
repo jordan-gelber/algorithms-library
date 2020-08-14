@@ -1,0 +1,13 @@
+<div class="panel panel-container">
+  <div class="panel-title" (click)="toggle.emit()"
+    fxLayout="row" fxLayoutAlign="space-between center">
+    <h1>{{paneltitle}}</h1>
+    <span>
+      <i *ngIf="!opened" class="fas fa-arrow-down"></i>
+      <i *ngIf="opened" class="fas fa-arrow-up"></i>
+    </span>
+  </div>
+  <div class="panel-body" *ngIf="opened">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+/** PanelComponent styles */
+.panel-title {
+  cursor: pointer;
+  padding: 10px;
+  border-top: 1px solid;
+}
+
+.panel-title h1 {
+  text-indent: 10px;
+}
+
+.panel-title i {
+  font-size: 1.5em;
+  margin: 10px;
+}
