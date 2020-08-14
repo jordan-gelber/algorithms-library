@@ -1,1 +1,37 @@
-<p>home works!</p>
+<div class="main-container" fxFlex="1 1 auto">
+  <div class="home-container" fxFlex="1 1 auto" fxLayout="column">
+    <div class="intro" fxFlex="grow" fxLayout="column">
+      <h1 fxFlex="grow">
+        This library contains a small collection of algorithms.
+        <br />An algorithm is a set of processes that, when given a certain input,
+        produce a desired output.
+      </h1>
+      <h3>
+        Explore the collection below or see all algorithms
+        <a routerLink="/algorithms">here</a>.
+      </h3>
+    </div>
+    <app-panels class="home-accordion">
+      <app-panel paneltitle="Recommended Reading">
+        <div class="favorites">
+          <nav gdColumns="repeat(4, 1fr)" gdAlignRows="stretch center" gdGap="10px">
+            <a *ngFor="let alg of favoriteAlgs" routerLink="/algorithms/{{alg.id}}">
+              <button>{{alg.name}}</button>
+            </a>
+          </nav>
+        </div>
+      </app-panel>
+      <app-panel paneltitle="I'm Feeling Lucky" (toggle)="random()">
+        <div class="lucky" *ngIf="randomAlgorithm">
+          <h1>Your Lucky Algorithm Is... {{randomAlgorithm.name}}!</h1>
+          <div fxLayout="row" fxLayoutAlign="end stretch" >
+            <button (click)="random()">Randomize Again</button>
+            <a routerLink="/algorithms/{{randomAlgorithm.id}}">
+              <button>See {{randomAlgorithm.name}}</button>
+            </a>
+          </div>
+        </div>
+      </app-panel>
+    </app-panels>
+  </div>
+</div>

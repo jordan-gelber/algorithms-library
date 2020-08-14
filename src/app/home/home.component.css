@@ -1,0 +1,54 @@
+/** HomeComponent styles */
+:host {
+  flex: 1;
+  flex-direction: column;
+}
+
+h1 {
+  padding: 0 20px;
+}
+
+.intro {
+  background: linear-gradient(to right, #ECF5FF, #007AFF);
+}
+
+.intro a {
+  text-decoration: none;
+  color: #000;
+}
+
+.intro a:hover {
+  text-decoration: underline;
+}
+
+.intro h3 {
+  text-align: right;
+  margin-top: 0;
+  padding: 0 20px;
+}
+
+.lucky button {
+  font-size: 2em;
+  padding: 20px;
+}
+
+.favorites, .lucky {
+  border-top: 1px solid;
+}
+
+.favorites nav {
+  list-style-type: none;
+  padding: 10px;
+}
+
+.favorites a {
+  min-width: 100%;
+  text-align: center;
+}
+
+.favorites button {
+  font-size: 2em;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
