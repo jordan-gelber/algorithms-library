@@ -41,10 +41,10 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-/*  "/api/algorithms"
- *    GET: finds all algorithms
- *    POST: creates a new algorithm
- */
+  /*  "/api/algorithms"
+   *    GET: get all algorithms
+   *    POST: creates a new algorithm
+   */
 
  app.get("/api/algorithms", function(req, res) {
    db.collection(ALGORITHMS_COLLECTION).find({}).toArray(function(err, docs) {
@@ -73,11 +73,25 @@ function handleError(res, reason, message, code) {
    }
  });
 
-/*  "/api/algorithms/:id"
- *    GET: find algorithm by id
- *    PUT: update algorithm by id
- *    DELETE: deletes algorithm by id
- */
+ /*  "/api/algorithms/:id"
+  *    GET: find algorithm by name
+  */
+
+  app.get("/api/algorithms/:name", function(req, res) {
+    db.collection(ALGORITHMS_COLLECTION).findOne({ name: req.params.name }, function(err, doc) {
+      if (err) {
+        handleError(res, err.message, "Failed to get algorithm");
+      } else {
+        res.status(200).json(doc);
+      }
+    });
+  });
+
+  /*  "/api/algorithms/:id"
+   *    GET: find algorithm by id
+   *    PUT: update algorithm by id
+   *    DELETE: deletes algorithm by id
+   */
 
  app.get("/api/algorithms/:id", function(req, res) {
    db.collection(ALGORITHMS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
