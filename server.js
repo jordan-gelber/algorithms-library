@@ -55,6 +55,12 @@ function handleError(res, reason, message, code) {
      if (req.query.group) {
        query.group = req.query.group;
      }
+     if (req.query.title) {
+       query.title = {
+         $regex: req.query.title,
+         $options: 'i',
+       };
+     }
      db.collection(ALGORITHMS_COLLECTION).find(query).toArray(function(err, docs) {
        if (err) {
          handleError(res, err.message, "Failed to get algorithms.");
