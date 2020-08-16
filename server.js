@@ -4,7 +4,7 @@ var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
 var ALGORITHMS_COLLECTION = "algorithms";
-
+var app = express();
 app.use('/js', express.static(__dirname + '/js'));
 app.use('/dist', express.static(__dirname + '/../dist'));
 app.use('/css', express.static(__dirname + '/css'));
