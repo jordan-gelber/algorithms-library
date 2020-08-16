@@ -12,10 +12,10 @@ app.use(express.static(__dirname + '/dist/algorithms-library'));
 // app.get('*', function(req,res) {
 //   res.sendFile(path.join(__dirname + '/dist/algorithms-library/index.html'));
 // });
-app.all('/*', function(req, res, next) {
-    // Just send the index.html for other files to support HTML5Mode
-    res.sendFile(path.join(__dirname + '/dist/algorithms-library/index.html'));
-});
+// app.all('/*', function(req, res, next) {
+//     // Just send the index.html for other files to support HTML5Mode
+//     res.sendFile(path.join(__dirname + '/dist/algorithms-library/index.html'));
+// });
 
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
