@@ -3,8 +3,8 @@
       (input)="search(searchBox.value)" placeholder="SEARCH"/>
     <ul class="search-result">
       <li *ngFor="let algorithm of algorithms$ | async">
-        <a routerLink="/algorithms/{{algorithm.id}}">
-          {{algorithm.name | uppercase}}
+        <a routerLink="/algorithms/{{algorithm.name}}">
+          {{algorithm.title | uppercase}}
         </a>
       </li>
     </ul>
