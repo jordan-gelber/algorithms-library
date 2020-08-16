@@ -5,15 +5,29 @@ var ObjectID = mongodb.ObjectID;
 
 var ALGORITHMS_COLLECTION = "algorithms";
 
-var app = express();
-app.use(bodyParser.json());
+app.use('/js', express.static(__dirname + '/js'));
+app.use('/dist', express.static(__dirname + '/../dist'));
+app.use('/css', express.static(__dirname + '/css'));
+app.use('/partials', express.static(__dirname + '/partials'));
 
-// Create link to Angular build directory
-var distDir = __dirname + "/dist/algorithms-library";
-app.use(express.static(distDir));
+app.all('/*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendFile('index.html', { root: __dirname });
+});
 
+app.listen(3006); //the port you want to use
+
+// var app = express();
+// app.use(bodyParser.json());
+// app.use(express.static(path.join(__dirname, 'dist/algorithms-library')));
+// app.use('/', express.static(path.join(__dirname, 'dist/algorithms-library')));
+//
 // app.get('/*', function(req,res) {
 //   res.sendFile(path.join(__dirname+'/dist/algorithms-library/index.html'));
+// });
+//
+// app.get('/', (req, res) => {
+//   res.sendFile(__dirname + '/index.html')
 // });
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
