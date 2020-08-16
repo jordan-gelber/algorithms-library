@@ -1,13 +1,14 @@
 export interface Algorithm {
-  _id?: number;
+  _id?: string;
   name: string;
+  title: string;
   group?: string;
   input?: string;
   output?: string;
   runtime?: string;
   subroutine?: {
-    subid?: number,
     subname?: string,
+    subtitle?: string,
   };
   code?: string;
 }

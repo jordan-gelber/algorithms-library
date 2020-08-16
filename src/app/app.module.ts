@@ -10,7 +10,7 @@ import { NewAlgorithmComponent } from './algorithms/new-algorithm/new-algorithm.
 import { EditAlgorithmComponent } from './algorithms/edit-algorithm/edit-algorithm.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
-import { AlgorithmSearchComponent } from './algorithm/algorithm-search/algorithm-search.component';
+import { AlgorithmSearchComponent } from './algorithms/algorithm-search/algorithm-search.component';
 import { AboutComponent } from './about/about.component';
 import { PanelsComponent } from './panels/panels.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
