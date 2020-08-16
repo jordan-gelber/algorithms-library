@@ -29,6 +29,15 @@ export class AlgorithmService {
     );
   }
 
+  /** GET: get algorithm by name. Will 404 if id not found */
+  getAlgorithmByName(name: string): Observable<Algorithm> {
+    const url = `${this.algorithmsUrl}/${name}`;
+    return this.http.get<Algorithm>(url).pipe(
+      tap(_ => this.log(`fetched algorithm name ${name}`)),
+      catchError(this.handleError<Algorithm>(`getAlgorithmByName ${name}`))
+    );
+  }
+
   /** GET: get list of all algorithms from the server */
   getAlgorithms(): Observable<Algorithm[]> {
     return this.http.get<Algorithm[]>(this.algorithmsUrl).pipe(
@@ -42,7 +51,7 @@ export class AlgorithmService {
     if(!term.trim()) { // if no search term, return empty algorithm array
       return of([]);
     }
-    return this.http.get<Algorithm[]>(`${this.algorithmsUrl}/?name=${term}`)
+    return this.http.get<Algorithm[]>(`${this.algorithmsUrl}/?title=${term}`)
       .pipe(tap(x => x.length ?
           this.log(`found algorithms matching "${term}"`) :
           this.log(`no algorithms found matching "${term}"`)),

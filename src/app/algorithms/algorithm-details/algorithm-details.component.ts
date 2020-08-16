@@ -21,12 +21,12 @@ export class AlgorithmDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(routeParams => {
-    	this.getAlgorithm(routeParams.id);
+    	this.getAlgorithm(routeParams.name);
     });
   }
 
-  getAlgorithm(id: string): void {
-    this.algorithmService.getAlgorithm(id)
+  getAlgorithm(name: string): void {
+    this.algorithmService.getAlgorithmByName(name)
       .subscribe(algorithm => this.algorithm = algorithm);
   }
 

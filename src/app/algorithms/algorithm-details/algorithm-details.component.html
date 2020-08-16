@@ -8,8 +8,8 @@
     <div class="details-container" fxFlex="35" fxLayout="column">
       <div class="details-content" fxFlex="grow">
         <label fxLayout="row" fxLayoutAlign="space-between center">
-          <p>ID</p>
-          <div class="details">{{algorithm.id}}</div>
+          <p>TITLE</p>
+          <div class="details">{{algorithm.title}}</div>
         </label>
         <label fxLayout="row" fxLayoutAlign="space-between center">
           <p>NAME</p>
@@ -38,15 +38,15 @@
         <label *ngIf="algorithm.subroutine" fxLayout="row"
           fxLayoutAlign="space-between center">
           <p>SUBROUTINE</p>
-          <a routerLink="/algorithms/{{algorithm.subroutine.subid}}">
-            {{algorithm.subroutine.subname}}
+          <a routerLink="/algorithms/{{algorithm.subroutine.subname}}">
+            {{algorithm.subroutine.subtitle}}
           </a>
         </label>
       </div>
       <div class="details-button" fxFlex="nogrow" fxLayout="row" fxLayoutAlign="center end">
         <button (click)="back()">Back</button>
         <a routerLink="/algorithms"><button>All Algorithms</button></a>
-        <a routerLink="/edit/{{algorithm.id}}"><button>Edit</button></a>
+        <a routerLink="/edit/{{algorithm.name}}"><button>Edit</button></a>
       </div>
     </div>
   </div>

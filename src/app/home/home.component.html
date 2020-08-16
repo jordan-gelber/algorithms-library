@@ -15,19 +15,19 @@
       <app-panel paneltitle="Recommended Reading">
         <div class="favorites">
           <nav gdColumns="repeat(4, 1fr)" gdAlignRows="stretch center" gdGap="10px">
-            <a *ngFor="let alg of favoriteAlgs" routerLink="/algorithms/{{alg.id}}">
-              <button>{{alg.name}}</button>
+            <a *ngFor="let alg of favoriteAlgs" routerLink="/algorithms/{{alg.name}}">
+              <button>{{alg.title}}</button>
             </a>
           </nav>
         </div>
       </app-panel>
       <app-panel paneltitle="I'm Feeling Lucky" (toggle)="random()">
         <div class="lucky" *ngIf="randomAlgorithm">
-          <h1>Your Lucky Algorithm Is... {{randomAlgorithm.name}}!</h1>
+          <h1>Your Lucky Algorithm Is... {{randomAlgorithm.title}}!</h1>
           <div fxLayout="row" fxLayoutAlign="end stretch" >
             <button (click)="random()">Randomize Again</button>
-            <a routerLink="/algorithms/{{randomAlgorithm.id}}">
-              <button>See {{randomAlgorithm.name}}</button>
+            <a routerLink="/algorithms/{{randomAlgorithm.name}}">
+              <button>See {{randomAlgorithm.title}}</button>
             </a>
           </div>
         </div>
