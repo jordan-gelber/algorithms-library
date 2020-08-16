@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { AlgorithmListComponent } from './algorithms/algorithm-list/algorithm-list.component';
 import { AlgorithmDetailsComponent } from './algorithms/algorithm-details/algorithm-details.component';
 import { EditAlgorithmComponent } from './algorithms/edit-algorithm/edit-algorithm.component';
-import { NewAlgorithmComponent } from './algorithms/new-algorithm/new-algorithm.component';
+// import { NewAlgorithmComponent } from './algorithms/new-algorithm/new-algorithm.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -26,10 +26,10 @@ const routes: Routes = [
     path: 'edit/:name',
     component: EditAlgorithmComponent
   },
-  {
-    path: 'new',
-    component: NewAlgorithmComponent
-  },
+  // {
+  //   path: 'new',
+  //   component: NewAlgorithmComponent
+  // },
   {
     path: 'about',
     component: AboutComponent

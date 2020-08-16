@@ -9,30 +9,30 @@
       <div class="edit-content" fxFlex="grow" fxLayout="column">
         <label fxLayout="row">
           <p fxFlex="25">TITLE</p>
-          <input fxFlex="75" [(ngModel)]="algorithm.title"/>
+          <input fxFlex="75" [(ngModel)]="algorithm.title" readonly/>
         </label>
         <label fxLayout="row">
           <p fxFlex="25">NAME</p>
-          <input fxFlex="75" [(ngModel)]="algorithm.name"/>
+          <input fxFlex="75" [(ngModel)]="algorithm.name" readonly/>
         </label>
         <label fxLayout="row">
           <p fxFlex="25">GROUP</p>
-          <input fxFlex="75" [(ngModel)]="algorithm.group"/>
+          <input fxFlex="75" [(ngModel)]="algorithm.group" readonly/>
         </label>
         <label fxLayout="row">
           <p fxFlex="25">INPUT</p>
-          <textarea fxFlex="75" [(ngModel)]="algorithm.input"></textarea>
+          <textarea fxFlex="75" [(ngModel)]="algorithm.input" readonly></textarea>
         </label>
         <label fxLayout="row">
           <p fxFlex="25">OUTPUT</p>
-          <textarea fxFlex="75" [(ngModel)]="algorithm.output"></textarea>
+          <textarea fxFlex="75" [(ngModel)]="algorithm.output" readonly></textarea>
         </label>
         <label fxLayout="row">
           <p fxFlex="25">RUNTIME</p>
-          <textarea fxFlex="75" [(ngModel)]="algorithm.runtime"></textarea>
+          <textarea fxFlex="75" [(ngModel)]="algorithm.runtime" readonly></textarea>
         </label>
         <label class="sub-editor" *ngIf="editSubVisible" fxLayout="row">
-          <select fxFlex="grow" [(ngModel)]="selectedSub">
+          <select fxFlex="grow" [(ngModel)]="selectedSub" readonly>
             <option value="no">No Subroutine</option>
             <option *ngFor="let a of algorithms" [value]="[a.name, a.title]">
               {{a.title}}
@@ -46,7 +46,8 @@
         <button (click)="back()">Back</button>
         <button *ngIf="algorithm.subroutine" (click)="editSubroutine()">Edit Subroutine</button>
         <button *ngIf="!algorithm.subroutine" (click)="editSubroutine()">Add Subroutine</button>
-        <button (click)=save()>Save</button>
+        <!-- <button (click)=save()>Save</button> -->
+        <button>Save</button>
       </div>
     </div>
   </div>
