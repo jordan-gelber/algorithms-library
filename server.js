@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 var distDir = __dirname + "/dist/algorithms-library";
 app.use(express.static(distDir));
 
-app.get('/*', function(req,res) {
-  res.sendFile(path.join(__dirname+'/dist/algorithms-library/index.html'));
-});
+// app.get('/*', function(req,res) {
+//   res.sendFile(path.join(__dirname+'/dist/algorithms-library/index.html'));
+// });
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
