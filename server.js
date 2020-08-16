@@ -9,8 +9,12 @@ var app = express();
 app.use(bodyParser.json());
 
 // Create link to Angular build directory
-var distDir = __dirname + "/dist/";
+var distDir = __dirname + "/dist/algorithms-library";
 app.use(express.static(distDir));
+
+app.get('/*', function(req,res) {
+  res.sendFile(path.join(__dirname+'/dist/algorithms-library/index.html'));
+});
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
@@ -47,31 +51,21 @@ function handleError(res, reason, message, code) {
    */
 
  app.get("/api/algorithms", function(req, res) {
-   if(req.query.group) {
-     db.collection(ALGORITHMS_COLLECTION).find({ group: req.query.group }).toArray(function(err, docs) {
-       if (err) {
-         handleError(res, err.message, "Failed to get algorithms.");
-       } else {
-         res.status(200).json(docs);
-       }
-     });
-   } else if (req.query.title) {
-     let term = req.query.title
-     db.collection(ALGORITHMS_COLLECTION).find({ title: { $regex: /term/ } }).toArray(function(err, docs) {
-       if (err) {
-         handleError(res, err.message, "Failed to get algorithms.");
-       } else {
-         res.status(200).json(docs);
-       }
-     });
-   } else {
-     db.collection(ALGORITHMS_COLLECTION).find({}).toArray(function(err, docs) {
-       if (err) {
-         handleError(res, err.message, "Failed to get algorithms.");
-       } else {
-         res.status(200).json(docs);
-       }
-     });
+   var query = {}
+   if (req.query.group) {
+     query.group = { $regex: req.query.group }
+   }
+   if (req.query.title) {
+     let term = `/${req.query.title}/i`
+     query.title = { $regex: term }
+   }
+   db.collection(ALGORITHMS_COLLECTION).find(query).toArray(function(err, docs) {
+     if (err) {
+       handleError(res, err.message, "Failed to get algorithms.");
+     } else {
+       res.status(200).json(docs);
+     }
+   });
    }
  });
 
