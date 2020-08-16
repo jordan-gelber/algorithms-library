@@ -71,7 +71,8 @@ export class AlgorithmService {
 
   /** PUT: update algorithm on the server */
   updateAlgorithm(algorithm: Algorithm): Observable<any> {
-    return this.http.put(this.algorithmsUrl, algorithm, this.httpOptions)
+    const url = `${this.algorithmsUrl}/${algorithm._id}`;
+    return this.http.put(url, algorithm, this.httpOptions)
       .pipe(
         tap(_ => this.log(`updated algorithm id = ${algorithm._id}`)),
         catchError(this.handleError<any>('updateAlgorithm'))
