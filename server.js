@@ -50,21 +50,35 @@ function handleError(res, reason, message, code) {
    *    POST: creates a new algorithm
    */
 
- app.get("/api/algorithms", function(req, res) {
-   var query = {}
-   if (req.query.group) {
-     query = { group: { req.query.group } };
-   } else if (req.query.title) {
-     query = { title: { $regex: `/${req.query.title}/i` } };
-   }
-   db.collection(ALGORITHMS_COLLECTION).find(query).toArray(function(err, docs) {
-     if (err) {
-       handleError(res, err.message, "Failed to get algorithms.");
-     } else {
-       res.status(200).json(docs);
+   app.get("/api/algorithms", function(req, res) {
+     var query = {};
+     if (req.query.group) {
+       query.group = req.query.group;
      }
+     db.collection(ALGORITHMS_COLLECTION).find(query).toArray(function(err, docs) {
+       if (err) {
+         handleError(res, err.message, "Failed to get algorithms.");
+       } else {
+         res.status(200).json(docs);
+       }
+     });
    });
- });
+
+ // app.get("/api/algorithms", function(req, res) {
+ //   var query = {}
+ //   if (req.query.group) {
+ //     query = { group: { req.query.group } };
+ //   } else if (req.query.title) {
+ //     query = { title: { $regex: `/${req.query.title}/i` } };
+ //   }
+ //   db.collection(ALGORITHMS_COLLECTION).find(query).toArray(function(err, docs) {
+ //     if (err) {
+ //       handleError(res, err.message, "Failed to get algorithms.");
+ //     } else {
+ //       res.status(200).json(docs);
+ //     }
+ //   });
+ // });
 
  app.post("/api/algorithms", function(req, res) {
    var newAlgorithm = req.body;
