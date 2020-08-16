@@ -16,7 +16,7 @@ app.use(express.static(distDir));
 var db;
 
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test", function (err, client) {
+mongodb.MongoClient.connect(process.env.DB_URI || "mongodb://localhost:27017/test", function (err, client) {
   if (err) {
     console.log(err);
     process.exit(1);
@@ -79,11 +79,8 @@ function handleError(res, reason, message, code) {
 
   app.get("/api/algorithms/:name", function(req, res) {
     db.collection(ALGORITHMS_COLLECTION).findOne({ name: req.params.name }, function(err, doc) {
-      if (err) {
-        handleError(res, err.message, "Failed to get algorithm");
-      } else {
-        res.status(200).json(doc);
-      }
+      if (err) { handleError(res, err.message, "Failed to get algorithm");
+      } else { res.status(200).json(doc); }
     });
   });
 
@@ -95,11 +92,8 @@ function handleError(res, reason, message, code) {
 
  app.get("/api/algorithms/:id", function(req, res) {
    db.collection(ALGORITHMS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
-     if (err) {
-       handleError(res, err.message, "Failed to get algorithm");
-     } else {
-       res.status(200).json(doc);
-     }
+     if (err) { handleError(res, err.message, "Failed to get algorithm");
+     } else { res.status(200).json(doc); }
    });
  });
 
@@ -108,8 +102,7 @@ function handleError(res, reason, message, code) {
    delete updateDoc._id;
 
    db.collection(ALGORITHMS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
-     if (err) {
-       handleError(res, err.message, "Failed to update algorithm");
+     if (err) { handleError(res, err.message, "Failed to update algorithm");
      } else {
        updateDoc._id = req.params.id;
        res.status(200).json(updateDoc);
