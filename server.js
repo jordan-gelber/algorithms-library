@@ -47,13 +47,31 @@ function handleError(res, reason, message, code) {
    */
 
  app.get("/api/algorithms", function(req, res) {
-   db.collection(ALGORITHMS_COLLECTION).find({}).toArray(function(err, docs) {
-     if (err) {
-       handleError(res, err.message, "Failed to get algorithms.");
-     } else {
-       res.status(200).json(docs);
-     }
-   });
+   if(req.query.group) {
+     db.collection(ALGORITHMS_COLLECTION).find({ group: req.query.group }).toArray(function(err, docs) {
+       if (err) {
+         handleError(res, err.message, "Failed to get algorithms.");
+       } else {
+         res.status(200).json(docs);
+       }
+     });
+   } else if (req.query.title) {
+     db.collection(ALGORITHMS_COLLECTION).find({ title: req.query.title }).toArray(function(err, docs) {
+       if (err) {
+         handleError(res, err.message, "Failed to get algorithms.");
+       } else {
+         res.status(200).json(docs);
+       }
+     });
+   } else {
+     db.collection(ALGORITHMS_COLLECTION).find({}).toArray(function(err, docs) {
+       if (err) {
+         handleError(res, err.message, "Failed to get algorithms.");
+       } else {
+         res.status(200).json(docs);
+       }
+     });
+   }
  });
 
  app.post("/api/algorithms", function(req, res) {
