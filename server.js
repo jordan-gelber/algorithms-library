@@ -56,7 +56,8 @@ function handleError(res, reason, message, code) {
        }
      });
    } else if (req.query.title) {
-     db.collection(ALGORITHMS_COLLECTION).find({ title: req.query.title }).toArray(function(err, docs) {
+     let term = req.query.title
+     db.collection(ALGORITHMS_COLLECTION).find({ title: { $regex: /term/ } }).toArray(function(err, docs) {
        if (err) {
          handleError(res, err.message, "Failed to get algorithms.");
        } else {
