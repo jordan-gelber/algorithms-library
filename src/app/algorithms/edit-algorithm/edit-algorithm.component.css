@@ -1,0 +1,73 @@
+/* EditAlgorithmComponent styles */
+:host {
+  flex: 1;
+  flex-direction: column;
+}
+
+.code-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.code-block {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  height: 0px;
+  padding: 10px;
+}
+
+.code-container {
+  background: linear-gradient(to right, #ECF5FF, #007AFF);
+}
+
+.code-block textarea {
+  width: 100%;
+}
+
+.edit-container {
+  border-left: solid 1px;
+}
+
+.edit-container p {
+  padding-right: 1em;
+}
+
+.edit-title {
+  border-bottom: solid 1px;
+  text-align: center;
+}
+
+.edit-content p {
+  margin-block-start: auto;
+  margin-block-end: auto;
+}
+
+.edit-content label {
+  border-bottom: dashed 1px;
+  padding: .5em;
+}
+
+.edit-content input, textarea {
+  appearance: none;
+  border: solid 1px;
+  line-height: 1.3;
+  text-indent: 1px;
+  padding: .25em;
+  margin: 3px;
+  background: white;
+}
+
+.edit-button {
+  border-top: 1px solid;
+}
+
+.sub-editor select {
+  margin: 10px;
+  text-indent: 1px;
+  border: 1px solid;
+}
+
+.sub-editor select:hover {
+  cursor: pointer;
+}

@@ -1,1 +1,53 @@
-<p>edit-algorithm works!</p>
+<div *ngIf="algorithm" class="main-container" fxFlex="1 1 auto" fxLayout="column">
+  <div fxFlex="grow" fxLayout="row">
+    <div class="code-container" fxFlex="65" fxLayout="column">
+      <div class="code-block" fxFlex="grow" fxLayout="row">
+          <textarea [(ngModel)]="algorithm.code" placeholder="PSEUDOCODE"></textarea>
+      </div>
+    </div>
+    <div class="edit-container" fxFlex="35" fxLayout="column">
+      <div class="edit-content" fxFlex="grow" fxLayout="column">
+        <label fxLayout="row">
+          <p fxFlex="25">TITLE</p>
+          <input fxFlex="75" [(ngModel)]="algorithm.title" readonly/>
+        </label>
+        <label fxLayout="row">
+          <p fxFlex="25">NAME</p>
+          <input fxFlex="75" [(ngModel)]="algorithm.name"/>
+        </label>
+        <label fxLayout="row">
+          <p fxFlex="25">GROUP</p>
+          <input fxFlex="75" [(ngModel)]="algorithm.group"/>
+        </label>
+        <label fxLayout="row">
+          <p fxFlex="25">INPUT</p>
+          <textarea fxFlex="75" [(ngModel)]="algorithm.input"></textarea>
+        </label>
+        <label fxLayout="row">
+          <p fxFlex="25">OUTPUT</p>
+          <textarea fxFlex="75" [(ngModel)]="algorithm.output"></textarea>
+        </label>
+        <label fxLayout="row">
+          <p fxFlex="25">RUNTIME</p>
+          <textarea fxFlex="75" [(ngModel)]="algorithm.runtime"></textarea>
+        </label>
+        <label class="sub-editor" *ngIf="editSubVisible" fxLayout="row">
+          <select fxFlex="grow" [(ngModel)]="selectedSub">
+            <option value="no">No Subroutine</option>
+            <option *ngFor="let a of algorithms" [value]="[a.name, a.title]">
+              {{a.title}}
+            </option>
+          </select>
+          <button fxFlex="nogrow" (click)="saveSubroutine(selectedSub)">Save</button>
+        </label>
+      </div>
+      <div class="edit-button" fxFlex="nogrow" fxLayout="row"
+        fxLayoutAlign="center end">
+        <button (click)="back()">Back</button>
+        <button *ngIf="algorithm.subroutine" (click)="editSubroutine()">Edit Subroutine</button>
+        <button *ngIf="!algorithm.subroutine" (click)="editSubroutine()">Add Subroutine</button>
+        <button (click)=save()>Save</button>
+      </div>
+    </div>
+  </div>
+</div>
