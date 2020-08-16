@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 var distDir = __dirname + "/dist/algorithms-library";
 app.use(express.static(distDir));
 
-// app.get('/*', function(req,res) {
-//   res.sendFile(path.join(__dirname+'/dist/algorithms-library/index.html'));
-// });
+app.get('/*', function(req,res) {
+  res.sendFile(path.join(__dirname+'/dist/algorithms-library/index.html'));
+});
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
@@ -53,11 +53,11 @@ function handleError(res, reason, message, code) {
  app.get("/api/algorithms", function(req, res) {
    var query = {}
    if (req.query.group) {
-     query.group = req.query.group
+     query.group = req.query.group;
    }
    if (req.query.title) {
-     let term = `/${req.query.title}/i`
-     query.title = { `$regex`: term }
+     let term = `/${req.query.title}/i`;
+     query.title = { $regex : term };
    }
    db.collection(ALGORITHMS_COLLECTION).find(query).toArray(function(err, docs) {
      if (err) {
