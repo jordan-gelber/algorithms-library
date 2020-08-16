@@ -8,31 +8,15 @@ var ALGORITHMS_COLLECTION = "algorithms";
 const path = require('path');
 var app = express();
 app.use(bodyParser.json());
-
-// var distDir = __dirname + "/dist/";
-// var distDirIn = __dirname + "/dist/index.html"
-// app.use(express.static(distDir));
-// app.get('/*', function(req,res) {
-//   res.sendFile(distDirIn);
-// });
-
 app.use(express.static(__dirname + '/dist/algorithms-library'));
-app.get('/*', function(req,res) {
-  res.sendFile(path.join(__dirname + '/dist/algorithms-library/index.html'));
+// app.get('*', function(req,res) {
+//   res.sendFile(path.join(__dirname + '/dist/algorithms-library/index.html'));
+// });
+app.all('/*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendFile(path.join(__dirname + '/dist/algorithms-library/index.html'));
 });
 
-// var app = express();
-// app.use(bodyParser.json());
-// app.use(express.static(path.join(__dirname, 'dist/algorithms-library')));
-// app.use('/', express.static(path.join(__dirname, 'dist/algorithms-library')));
-//
-// app.get('/*', function(req,res) {
-//   res.sendFile(path.join(__dirname+'/dist/algorithms-library/index.html'));
-// });
-//
-// app.get('/', (req, res) => {
-//   res.sendFile(__dirname + '/index.html')
-// });
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
