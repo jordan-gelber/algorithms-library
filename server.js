@@ -4,18 +4,30 @@ var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
 var ALGORITHMS_COLLECTION = "algorithms";
-var app = express();
-app.use('/js', express.static(__dirname + '/js'));
-app.use('/dist', express.static(__dirname + '/../dist'));
-app.use('/css', express.static(__dirname + '/css'));
-app.use('/partials', express.static(__dirname + '/partials'));
 
-app.all('/*', function(req, res, next) {
-    // Just send the index.html for other files to support HTML5Mode
-    res.sendFile(__dirname + '/index.html');
+const path = require('path');
+const app = express();
+
+app.use(express.static(__dirname + '/dist/algorithms-library'));
+app.get('/*', function(req,res) {
+  res.sendFile(path.join(__dirname + '/dist/algorithms-library/index.html'));
 });
 
-app.listen(3006); //the port you want to use
+app.listen(process.env.PORT || 8080);
+
+
+
+// var app = express();
+// app.use('/js', express.static(__dirname + '/js'));
+// app.use('/dist', express.static(__dirname + '/../dist'));
+// app.use('/css', express.static(__dirname + '/css'));
+// app.use('/partials', express.static(__dirname + '/partials'));
+//
+// app.all('/*', function(req, res, next)
+//     res.sendFile(__dirname + '/index.html');
+// });
+//
+// app.listen(3006);
 
 // var app = express();
 // app.use(bodyParser.json());
