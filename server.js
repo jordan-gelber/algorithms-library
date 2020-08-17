@@ -9,6 +9,7 @@ const path = require('path');
 var app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/dist/algorithms-library'));
+
 // app.get('*', function(req,res) {
 //   res.sendFile(path.join(__dirname + '/dist/algorithms-library/index.html'));
 // });
@@ -150,4 +151,8 @@ function handleError(res, reason, message, code) {
        res.status(200).json(req.params.id);
      }
    });
+ });
+
+ app.get('*', function(req,res) {
+   res.sendFile(path.join(__dirname + '/dist/algorithms-library/index.html'));
  });
